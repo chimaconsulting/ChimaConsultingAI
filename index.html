@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo Azzali — Formazione AI</title>
+    <meta name="description" content="Percorsi formativi sull'intelligenza artificiale per famiglie, professionisti e insegnanti. Piacenza e dintorni.">
+    <meta property="og:title" content="Matteo Azzali — Formazione AI">
+    <meta property="og:description" content="Tre percorsi. Un formatore reale. L'AI spiegata a chi ne ha bisogno davvero.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #005EB8;
+            --blue-dark: #00408a;
+            --blue-light: #e8f0fb;
+            --blue-mid: #cddcf5;
+            --black: #0a0a0a;
+            --gray-900: #111111;
+            --gray-700: #3a3a3a;
+            --gray-500: #6b6b6b;
+            --gray-300: #c8c8c8;
+            --gray-100: #f2f2f2;
+            --white: #ffffff;
+            --surface: #fafafa;
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+            --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+            --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+            --text-hero: clamp(2.8rem, 1rem + 5.5vw, 5.5rem);
+            --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+            --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+            --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+            --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+            --radius-sm: 4px; --radius-md: 8px; --radius-lg: 14px;
+            --radius-xl: 20px; --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.07);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.09);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.13);
+            --transition: 200ms cubic-bezier(0.16, 1, 0.3, 1);
+            --content: 1100px;
+            --content-narrow: 680px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            color: var(--gray-900);
+            background: var(--white);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        body.scroll-locked { overflow: hidden; }
+        img { display: block; max-width: 100%; height: auto; }
+        h1,h2,h3,h4 { text-wrap: balance; line-height: 1.15; }
+        p,li { text-wrap: pretty; }
+        button { cursor: pointer; background: none; border: none; font: inherit; }
+        a { text-decoration: none; color: inherit; transition: color var(--transition); }
+        ::selection { background: var(--blue-mid); color: var(--blue-dark); }
+        :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: var(--radius-sm); }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+        .wrap { max-width: var(--content); margin-inline: auto; padding-inline: var(--space-6); }
+        .wrap--narrow { max-width: var(--content-narrow); margin-inline: auto; padding-inline: var(--space-6); }
+
+        /* NAV */
+        .nav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.07); height: 64px; }
+        .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+        .nav-logo { display: flex; align-items: center; gap: var(--space-3); }
+        .nav-logo-text { font-size: var(--text-sm); font-weight: 700; color: var(--gray-900); letter-spacing: -0.01em; }
+        .nav-logo-text span { color: var(--blue); }
+        .nav-links { display: flex; gap: var(--space-8); list-style: none; }
+        .nav-links a { font-size: var(--text-sm); font-weight: 500; color: var(--gray-500); transition: color var(--transition); }
+        .nav-links a:hover { color: var(--blue); }
+        .nav-cta { background: var(--blue); color: var(--white); border-radius: var(--radius-full); padding: 10px var(--space-5); font-size: var(--text-sm); font-weight: 600; transition: background var(--transition), transform var(--transition), box-shadow var(--transition); }
+        .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,94,184,0.3); }
+
+                /* LABEL SOPRA LE PILL */
+        .track-label {
+            text-align: center;
+            margin-bottom: var(--space-3);
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--gray-300);
+            transition: color 300ms ease;
+        }
+        .track-label span {
+            color: var(--blue);
+            font-weight: 700;
+            transition: color 300ms ease;
+        }
+        /* SELETTORE PERCORSI — stile Tesla */
+        .track-selector-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: var(--space-3) 0;
+            position: sticky;
+            top: 64px;
+            z-index: 190;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .track-selector-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+        }
+        /* Contenitore pill: un'unica barra continua stile Tesla */
+        .track-pill-group {
+            display: flex;
+            background: var(--gray-100);
+            border-radius: var(--radius-full);
+            padding: 3px;
+            position: relative;
+        }
+        .track-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 10px var(--space-8);
+            border-radius: var(--radius-full);
+            border: none;
+            background: transparent;
+            color: var(--gray-500);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.01em;
+        }
+        .track-pill.active {
+            background: var(--white);
+            color: var(--blue);
+            box-shadow: var(--shadow-sm);
+        }
+        .track-pill:hover:not(.active) {
+            color: var(--gray-700);
+        }
+        .track-pill:active {
+            transform: scale(0.96);
+        }
+        .track-pill .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0,94,184,0.3);
+            transform: scale(0);
+            animation: ripple-anim 500ms ease-out forwards;
+            pointer-events: none;
+            z-index: -1;
+        }
+        @keyframes ripple-anim {
+            to { transform: scale(12); opacity: 0; }
+        }
+        @media (max-width: 640px) {
+            .track-pill { padding: 9px var(--space-5); font-size: var(--text-xs); letter-spacing: -0.02em; }
+            .track-pill-group { padding: 2px; }
+        }
+        @media (max-width: 380px) {
+            .track-pill { padding: 8px var(--space-4); font-size: 0.7rem; }
+        }
+
+        /* HERO */
+        .hero { min-height: calc(100svh - 64px - 57px); display: flex; flex-direction: column; justify-content: center; padding: var(--space-20) 0 var(--space-16); background: var(--white); position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,94,184,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,94,184,0.04) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+        .hero-inner { position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); background: var(--blue-light); color: var(--blue); border-radius: var(--radius-full); padding: var(--space-2) var(--space-4); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-6); }
+        .hero-eyebrow-dot { width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.4); } }
+        .hero-sub { font-size: var(--text-lg); color: var(--gray-500); max-width: 48ch; line-height: 1.65; margin-bottom: var(--space-10); }
+        .hero-actions { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+        .btn-primary { background: var(--blue); color: var(--white); border-radius: var(--radius-full); padding: 14px var(--space-10); font-size: var(--text-base); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-2); transition: background var(--transition), transform var(--transition), box-shadow var(--transition); }
+        .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,94,184,0.35); }
+        .btn-primary:active { transform: translateY(0); }
+        .hero-method-link { background: transparent; color: var(--blue); border: 2px solid var(--blue-mid); padding: 12px var(--space-6); border-radius: var(--radius-full); font-weight: 700; font-size: var(--text-base); display: inline-flex; align-items: center; gap: var(--space-2); transition: border-color var(--transition), color var(--transition); }
+        .hero-method-link:hover { border-color: var(--blue); }
+        .hero-scroll-hint { margin-top: var(--space-16); display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-xs); color: var(--gray-300); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+        .hero-scroll-hint::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gray-300); }
+        .hero-magnetic-title { font-family: var(--font-display); font-size: var(--text-hero); font-style: italic; color: var(--black); line-height: 1.05; max-width: 16ch; margin-bottom: var(--space-6); user-select: none; min-height: 1.2em; }
+        .mag-line { display: block; }
+        .mag-word { display: inline-block; will-change: transform; transition: color 0.3s ease; }
+        .mag-word em { font-style: italic; color: var(--blue); }
+        .mag-word:hover { color: var(--blue); }
+        .mag-word.typing { opacity: 0; animation: type-in 0.04s ease-out forwards; }
+        @keyframes type-in { to { opacity: 1; } }
+
+        /* TRUST BAR */
+        .trust-bar { border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); padding: var(--space-5) 0; background: var(--surface); }
+        .trust-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+        .trust-item { font-size: var(--text-xs); color: var(--gray-500); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: var(--space-2) var(--space-6); border-right: 1px solid var(--gray-100); }
+        .trust-item:last-child { border-right: none; }
+
+        /* SEZIONI */
+        .section { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0; }
+        .section-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: var(--space-4); }
+        .section-title { font-family: var(--font-display); font-size: var(--text-2xl); font-style: italic; color: var(--black); line-height: 1.1; margin-bottom: var(--space-6); }
+        .section-body { font-size: var(--text-base); color: var(--gray-500); line-height: 1.75; max-width: 58ch; }
+
+        /* FEAR CARDS */
+        .fear-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-top: var(--space-10); }
+        .fear-card { background: var(--surface); border-radius: var(--radius-xl); padding: var(--space-8); border: 1px solid var(--gray-100); border-top: 3px solid var(--blue-mid); transition: border-top-color var(--transition), box-shadow var(--transition), transform var(--transition); }
+        .fear-card:hover { border-top-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .fear-card p { font-size: var(--text-lg); font-family: var(--font-display); font-style: italic; color: var(--gray-700); line-height: 1.5; margin-bottom: var(--space-3); }
+        .fear-card span { font-size: var(--text-xs); color: var(--gray-300); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+
+        /* METODO */
+        .metodo-light { background: var(--gray-100); }
+        .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-5); margin-top: var(--space-12); }
+        .step { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: var(--space-8); position: relative; overflow: hidden; transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition); }
+        .step:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--blue-mid); }
+        .step-num { font-family: var(--font-display); font-style: italic; font-size: 5.5rem; color: var(--gray-100); line-height: 1; position: absolute; top: var(--space-3); right: var(--space-5); font-weight: 700; letter-spacing: -0.02em; }
+        .step-accent { width: 36px; height: 4px; border-radius: var(--radius-full); margin-bottom: var(--space-5); }
+        .step-accent-blue { background: var(--blue); }
+        .step-accent-navy { background: #003580; }
+        .step-accent-sky { background: #5b9bd5; }
+        .step h3 { font-size: var(--text-lg); font-weight: 700; color: var(--black); margin-bottom: var(--space-3); }
+        .step p { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.7; max-width: 30ch; }
+        .step-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--space-5); border: 1.5px solid var(--blue-mid); color: var(--blue); border-radius: var(--radius-full); padding: 5px var(--space-4); font-size: var(--text-xs); font-weight: 700; }
+        .step-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-5); position: relative; z-index: 1; flex-shrink: 0; }
+        .step-icon svg { width: 22px; height: 22px; }
+        .step-icon-1 { background: var(--blue-light); color: var(--blue); }
+        .step-icon-2 { background: #e8f4ff; color: #185FA5; }
+        .step-icon-3 { background: #eef7ff; color: #003580; }
+        .step-benefits { list-style: none; margin: var(--space-4) 0 0; display: flex; flex-direction: column; gap: var(--space-2); }
+        .step-benefits li { font-size: var(--text-xs); color: var(--gray-500); display: flex; align-items: flex-start; gap: var(--space-2); line-height: 1.5; }
+        .step-benefits li::before { content: '✓'; color: var(--blue); font-weight: 700; font-size: 11px; margin-top: 1px; flex-shrink: 0; }
+
+        /* MODULI */
+        .moduli-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px,100%),1fr)); gap: var(--space-5); margin-top: var(--space-10); }
+        .modulo { border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: var(--space-6); background: var(--white); position: relative; transition: box-shadow var(--transition), transform var(--transition); }
+        .modulo::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--radius-xl) var(--radius-xl) 0 0; background: var(--blue-mid); transition: background var(--transition); }
+        .modulo.for-parent-card::before { background: var(--blue); }
+        .modulo.for-together-card::before { background: #5b9bd5; }
+        .modulo.for-kids-card::before { background: #003580; }
+        .modulo.modulo-extra { border-style: dashed; border-color: var(--blue-mid); background: var(--blue-light); opacity: 0.85; }
+        .modulo.modulo-extra::before { background: linear-gradient(90deg, var(--blue-mid), var(--blue), var(--blue-mid)); }
+        .modulo:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .modulo:hover::before { background: var(--blue); }
+        .modulo-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: var(--space-4); }
+        .modulo-num { font-size: var(--text-xs); font-weight: 700; color: var(--gray-300); letter-spacing: 0.08em; text-transform: uppercase; }
+        .modulo-for { font-size: var(--text-xs); background: var(--gray-100); color: var(--gray-500); padding: 3px 10px; border-radius: var(--radius-full); font-weight: 600; }
+        .modulo-for.for-parent { background: var(--blue-light); color: var(--blue); }
+        .modulo-for.modulo-bonus { background: #e8f4ff; color: var(--blue-dark); font-weight: 700; }
+        .modulo h3 { font-size: var(--text-base); font-weight: 700; margin-bottom: var(--space-2); }
+        .modulo p { font-size: var(--text-sm); color: var(--gray-500); line-height: 1.65; }
+
+        /* CHI SONO */
+        .chi-sono-grid { display: grid; grid-template-columns: 380px 1fr; gap: var(--space-16); align-items: start; margin-top: var(--space-10); }
+        .profile-card { background: var(--surface); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); position: sticky; top: 130px; }
+        .profile-photo { width: 100%; aspect-ratio: 3/4; background: var(--blue-light); display: flex; align-items: center; justify-content: center; font-size: 5rem; position: relative; overflow: hidden; }
+        .profile-photo-placeholder { background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-mid) 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+        .profile-info { padding: var(--space-6); }
+        .profile-name { font-size: var(--text-xl); font-family: var(--font-display); font-style: italic; color: var(--black); margin-bottom: var(--space-1); }
+        .profile-role { font-size: var(--text-sm); color: var(--gray-500); margin-bottom: var(--space-5); }
+        .profile-badges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+        .badge { display: flex; align-items: center; gap: var(--space-2); border: 1px solid var(--gray-100); border-radius: var(--radius-full); padding: 5px 12px; font-size: var(--text-xs); font-weight: 600; color: var(--gray-700); }
+        .about-body p { color: var(--gray-500); line-height: 1.8; font-size: var(--text-base); margin-bottom: var(--space-5); max-width: 58ch; }
+        .about-body strong { color: var(--gray-900); }
+        .certs-title { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-300); margin-top: var(--space-8); margin-bottom: var(--space-5); }
+        .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+        .cert-card { border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--white); transition: box-shadow var(--transition), border-color var(--transition); }
+        .cert-card:hover { box-shadow: var(--shadow-sm); border-color: var(--blue-mid); }
+        .cert-issuer { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue); margin-bottom: var(--space-2); }
+        .cert-name { font-size: var(--text-sm); font-weight: 600; color: var(--gray-900); line-height: 1.4; margin-bottom: var(--space-2); }
+        .cert-platform { font-size: var(--text-xs); color: var(--gray-500); }
+        .cert-verified { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--space-2); font-size: var(--text-xs); font-weight: 600; color: #059669; }
+
+        /* CTA */
+        .cta-section { background: var(--blue); color: var(--white); text-align: center; padding: clamp(var(--space-16), 8vw, var(--space-24)) 0; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.04) 0%, transparent 60%); }
+        .cta-section>* { position: relative; z-index: 1; }
+        .cta-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: var(--space-4); }
+        .cta-title { font-family: var(--font-display); font-size: var(--text-2xl); font-style: italic; color: var(--white); margin-bottom: var(--space-4); }
+        .cta-sub { font-size: var(--text-base); color: rgba(255,255,255,0.65); max-width: 44ch; margin-inline: auto; margin-bottom: var(--space-10); line-height: 1.7; }
+        .cta-buttons { display: flex; align-items: center; justify-content: center; gap: var(--space-4); flex-wrap: wrap; }
+        .btn-white { background: var(--white); color: var(--blue); border-radius: var(--radius-full); padding: 14px var(--space-10); font-size: var(--text-base); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-2); transition: transform var(--transition), box-shadow var(--transition); }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+        .btn-wa-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); border-radius: var(--radius-full); padding: 12px var(--space-8); font-size: var(--text-base); font-weight: 600; display: inline-flex; align-items: center; gap: var(--space-2); transition: background var(--transition), border-color var(--transition); }
+        .btn-wa-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+
+        /* FORM */
+        .form-wrap { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: var(--space-10); box-shadow: var(--shadow-md); max-width: 560px; margin-inline: auto; margin-top: var(--space-12); }
+        .form-title { font-family: var(--font-display); font-size: var(--text-xl); font-style: italic; margin-bottom: var(--space-2); }
+        .form-subtitle { font-size: var(--text-sm); color: var(--gray-500); margin-bottom: var(--space-8); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+        .form-group { margin-bottom: var(--space-5); }
+        .form-group label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-2); color: var(--gray-700); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--surface); color: var(--gray-900); border: 1.5px solid var(--gray-100); border-radius: var(--radius-md); padding: 12px var(--space-4); font: inherit; font-size: var(--text-sm); transition: border-color var(--transition), box-shadow var(--transition); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,94,184,0.12); }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .btn-form { width: 100%; background: var(--blue); color: var(--white); border-radius: var(--radius-full); padding: 14px; font-weight: 700; font-size: var(--text-base); transition: background var(--transition), transform var(--transition); }
+        .btn-form:hover { background: var(--blue-dark); transform: translateY(-1px); }
+        .btn-form:disabled { opacity: 0.6; cursor: not-allowed; pointer-events: none; }
+        .form-note { text-align: center; font-size: var(--text-xs); color: var(--gray-300); margin-top: var(--space-4); }
+        .form-success { display: none; text-align: center; padding: var(--space-12) 0; }
+        .form-success.show { display: block; }
+        .form-success h3 { font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); margin-bottom: var(--space-3); }
+        .form-success p { color: var(--gray-500); font-size: var(--text-sm); }
+        .form-error { display: none; text-align: center; padding: var(--space-4); background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); color: #dc2626; font-size: var(--text-sm); margin-bottom: var(--space-4); }
+        .form-error.show { display: block; }
+
+        /* FOOTER */
+        .footer { border-top: 1px solid var(--gray-100); padding: var(--space-10) 0; background: var(--white); }
+        .footer-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-8); }
+        .footer-brand { font-family: var(--font-display); font-style: italic; font-size: var(--text-lg); }
+        .footer-brand span { color: var(--blue); }
+        .footer-nav { display: flex; gap: var(--space-6); justify-content: center; flex-wrap: wrap; }
+        .footer-nav a { font-size: var(--text-sm); color: var(--gray-500); font-weight: 500; transition: color var(--transition); }
+        .footer-nav a:hover { color: var(--blue); }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-2); }
+        .footer-cta { font-size: var(--text-sm); font-weight: 700; color: var(--blue); border: 1.5px solid var(--blue-mid); border-radius: var(--radius-full); padding: 6px var(--space-5); transition: background var(--transition), color var(--transition); }
+        .footer-cta:hover { background: var(--blue); color: var(--white); }
+        .footer-note { font-size: var(--text-xs); color: var(--gray-300); }
+
+        /* WHATSAPP FLOATING */
+        .wa-float { position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: 300; background: #25D366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: transform var(--transition), box-shadow var(--transition); }
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+        .wa-float svg { width: 28px; height: 28px; }
+
+        /* CURSOR BLOB */
+        .cursor-blob { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border-radius: 50%; background: rgba(0,94,184,0.10); border: 1.5px solid rgba(0,94,184,0.3); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.35s cubic-bezier(0.16,1,0.3,1), height 0.35s cubic-bezier(0.16,1,0.3,1), background 0.3s ease, border-color 0.3s ease; mix-blend-mode: multiply; will-change: left, top; }
+        .cursor-blob.big { width: 76px; height: 76px; background: rgba(0,94,184,0.07); border-color: rgba(0,94,184,0.5); }
+        .cursor-blob.clicking { width: 28px; height: 28px; background: rgba(0,94,184,0.22); }
+        @media (hover: none) { .cursor-blob { display: none; } }
+
+        /* REVEAL */
+        .reveal { opacity: 1; }
+        @supports (animation-timeline: scroll()) { .reveal { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 75%; } }
+        @keyframes reveal-fade { to { opacity: 1; } }
+
+        /* SWITCHING */
+        .dynamic-section { transition: opacity 350ms cubic-bezier(0.16,1,0.3,1), transform 350ms cubic-bezier(0.16,1,0.3,1); }
+        .dynamic-section.switching { opacity: 0; transform: translateY(12px); }
+
+        /* HAMBURGER */
+        .nav-ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border-radius: var(--radius-sm); transition: background var(--transition); }
+        .nav-ham:hover { background: var(--gray-100); }
+        .nav-ham span { display: block; width: 22px; height: 2px; background: var(--gray-700); border-radius: 2px; transition: transform var(--transition), opacity var(--transition); }
+        .nav-ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-ham.open span:nth-child(2) { opacity: 0; }
+        .nav-ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--gray-100); padding: var(--space-6); z-index: 199; flex-direction: column; gap: var(--space-4); }
+        .nav-mobile-menu.open { display: flex; }
+        .nav-mobile-menu a { font-size: var(--text-base); font-weight: 500; color: var(--gray-700); padding: var(--space-3) 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+        .nav-mobile-menu a:last-child { border-bottom: none; }
+        .nav-mobile-menu a::after { content: '→'; color: var(--blue); }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) { .nav-links { display: none; } .nav-ham { display: flex; } .nav-cta { display: none; } }
+        @media (max-width: 640px) { .trust-inner { flex-direction: column; gap: 0; } .trust-item { border-right: none; border-bottom: 1px solid var(--gray-100); width: 100%; text-align: center; padding: var(--space-3) var(--space-4); } .trust-item:last-child { border-bottom: none; } }
+        @media (max-width: 640px) { .hero { padding: var(--space-16) 0 var(--space-10); min-height: auto; } .hero-sub { font-size: var(--text-base); } .hero-actions { flex-direction: column; width: 100%; } .btn-primary, .hero-method-link { width: 100%; justify-content: center; padding: 14px var(--space-6); } .hero-scroll-hint { display: none; } .hero-magnetic-title { font-size: clamp(2rem, 8vw, 3.5rem); } }
+        @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } .step { display: grid; grid-template-columns: 48px 1fr; gap: 0 var(--space-5); align-items: start; padding: var(--space-6); } .step-icon { margin-bottom: 0; } .step-num { grid-column: 2; font-size: 3.5rem; position: static; line-height: 1; margin-bottom: var(--space-2); } .step h3 { margin-bottom: var(--space-2); } .step p { max-width: 100%; } .step-tag { margin-top: var(--space-3); } .step-accent { display: none; } .step-benefits { display: flex; flex-direction: row; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); } .step-benefits li { font-size: 11px; background: var(--blue-light); padding: 2px 8px; border-radius: var(--radius-full); color: var(--blue-dark); } .step-benefits li::before { display: none; } }
+        @media (max-width: 640px) { .step { grid-template-columns: 1fr; } .step-icon { width: 42px; height: 42px; } .step-num { font-size: 3rem; } }
+        @media (max-width: 640px) { .moduli-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { .cta-buttons { flex-direction: column; width: 100%; } .btn-white, .btn-wa-outline { width: 100%; justify-content: center; } }
+        @media (max-width: 640px) { .form-wrap { padding: var(--space-6); margin-top: var(--space-8); } .form-row { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { .fear-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .chi-sono-grid { grid-template-columns: 1fr; gap: var(--space-8); } .profile-card { position: static; max-width: 280px; margin-inline: auto; } .certs-grid { grid-template-columns: 1fr 1fr; } .about-body p { max-width: 100%; } }
+        @media (max-width: 640px) { .certs-grid { grid-template-columns: 1fr; } .profile-card { max-width: 240px; } }
+        @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; text-align: center; } .footer-right { align-items: center; } .footer-nav { justify-content: center; } }
+        @media (max-width: 640px) { .section { padding: clamp(var(--space-10), 6vw, var(--space-16)) 0; } .wrap { padding-inline: var(--space-4); } .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); } }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-blob" id="cb" aria-hidden="true"></div>
+
+    <!-- Sostituisci 39XXXXXXXXXX con il tuo numero WhatsApp -->
+    <a class="wa-float" href="https://wa.me/393493727346" target="_blank" rel="noopener noreferrer" aria-label="Contattami su WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.658 4.8 1.807 6.805L2 30l7.38-1.782A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.45 11.45 0 01-5.82-1.587l-.416-.248-4.38 1.057 1.1-4.258-.272-.437A11.5 11.5 0 1116 27.5zm6.29-8.62c-.345-.172-2.04-1.005-2.355-1.12-.315-.115-.545-.172-.775.173-.23.344-.888 1.12-1.088 1.35-.2.23-.4.258-.745.086-.345-.172-1.456-.537-2.773-1.71-1.025-.913-1.717-2.04-1.918-2.384-.2-.345-.021-.531.15-.703.155-.155.345-.4.517-.602.172-.2.23-.344.345-.573.115-.23.058-.43-.029-.603-.086-.172-.775-1.87-1.062-2.56-.28-.673-.563-.58-.775-.591-.2-.01-.43-.013-.66-.013s-.602.087-.917.43c-.315.344-1.2 1.172-1.2 2.858s1.228 3.315 1.4 3.545c.172.23 2.416 3.687 5.855 5.167.818.353 1.457.564 1.955.722.822.261 1.57.224 2.162.136.66-.099 2.04-.833 2.327-1.637.287-.804.287-1.493.2-1.637-.086-.143-.316-.23-.66-.4z"/></svg>
+    </a>
+
+    <!-- NAV -->
+    <header class="nav">
+        <div class="wrap">
+            <div class="nav-inner">
+                <a href="#top" class="nav-logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                        <rect width="32" height="32" rx="8" fill="#005EB8"/>
+                        <path d="M9 22L14 10l3 7 2-3 4 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <circle cx="23" cy="11" r="2" fill="white" opacity="0.7"/>
+                    </svg>
+                    <span class="nav-logo-text">Matteo <span>Azzali</span></span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#metodo">Il metodo</a></li>
+                    <li><a href="#corso">Il corso</a></li>
+                    <li><a href="#chi-sono">Chi sono</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+                <a href="#contatti" class="nav-cta">Contattami →</a>
+                <button class="nav-ham" id="ham" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+        <a href="#metodo" onclick="closeMobileMenu()">Il metodo</a>
+        <a href="#corso" onclick="closeMobileMenu()">Il corso</a>
+        <a href="#chi-sono" onclick="closeMobileMenu()">Chi sono</a>
+        <a href="#contatti" onclick="closeMobileMenu()" style="color:var(--blue);font-weight:700;">Contattami →</a>
+    </nav>
+
+    <!-- SELETTORE PERCORSI — stile Tesla -->
+    <div class="track-selector-bar" role="navigation" aria-label="Scegli il tuo percorso">
+        <div class="wrap">
+            <div class="track-selector-inner">
+                <div style="text-align:center;">
+                    <p class="track-label" id="track-label">Corsi AI per <span id="track-label-target">Famiglie</span></p>
+                    <div class="track-pill-group">
+                        <button class="track-pill active" data-track="famiglie" onclick="switchTo('famiglie', event)" aria-pressed="true">Famiglie</button>
+                        <button class="track-pill" data-track="professionisti" onclick="switchTo('professionisti', event)" aria-pressed="false">Professionisti</button>
+                        <button class="track-pill" data-track="insegnanti" onclick="switchTo('insegnanti', event)" aria-pressed="false">Insegnanti</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero dynamic-section" id="top">
+        <div class="wrap">
+            <div class="hero-inner">
+                <div class="hero-eyebrow" id="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span></div>
+                <h1 class="hero-magnetic-title" id="hero-title"></h1>
+                <p class="hero-sub" id="hero-sub"></p>
+                <div class="hero-actions">
+                    <a href="#contatti" class="btn-primary" id="hero-cta-primary"></a>
+                    <a href="#metodo" class="hero-method-link">Scopri il metodo ↓</a>
+                </div>
+                <div class="hero-scroll-hint">Scorri per saperne di più</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar dynamic-section">
+        <div class="wrap"><div class="trust-inner" id="trust-items"></div></div>
+    </div>
+
+    <!-- PROBLEMA -->
+    <section class="section dynamic-section" id="problema">
+        <div class="wrap">
+            <p class="section-label reveal">La sfida</p>
+            <h2 class="section-title reveal" id="sfida-title"></h2>
+            <p class="section-body reveal" id="sfida-body"></p>
+            <div class="fear-grid" id="fear-grid"></div>
+        </div>
+    </section>
+
+    <!-- METODO -->
+    <section class="section metodo-light dynamic-section" id="metodo">
+        <div class="wrap">
+            <p class="section-label reveal">Il metodo</p>
+            <h2 class="section-title reveal" id="metodo-title"></h2>
+            <p class="section-body reveal" id="metodo-body" style="margin-bottom:0;"></p>
+            <div class="steps-wrapper"><div class="steps" id="steps-grid"></div></div>
+            <div style="text-align:center;margin-top:var(--space-12);">
+                <p style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--space-5);" id="metodo-note"></p>
+                <a href="#contatti" class="btn-primary" style="display:inline-flex;" id="metodo-cta"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULI -->
+    <section class="section dynamic-section" id="corso" style="background:var(--surface);">
+        <div class="wrap">
+            <p class="section-label reveal">Il programma</p>
+            <h2 class="section-title reveal" id="moduli-title"></h2>
+            <p class="section-body reveal" id="moduli-body"></p>
+            <div class="moduli-grid" id="moduli-grid"></div>
+        </div>
+    </section>
+
+    <!-- CHI SONO -->
+    <section class="section" id="chi-sono">
+        <div class="wrap">
+            <p class="section-label reveal">Chi sono</p>
+            <h2 class="section-title reveal">Una persona reale,<br>non una piattaforma.</h2>
+            <div class="chi-sono-grid">
+                <div class="profile-card reveal">
+                    <div class="profile-photo">
+                        <!-- Sostituisci con: <img src="tuafoto.jpg" alt="Matteo Azzali" style="width:100%;height:100%;object-fit:cover;"> -->
+                        <div class="profile-photo-placeholder"></div>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name">Matteo Azzali</div>
+                        <div class="profile-role">Formatore AI · Demand Planner</div>
+                        <div class="profile-badges">
+                            <span class="badge">Politecnico di Milano</span>
+                            <span class="badge">Piacenza</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-body">
+                    <p>Mi chiamo <strong>Matteo Azzali</strong>, sono laureato al <strong>Politecnico di Milano</strong> e lavoro quotidianamente con dati, algoritmi e intelligenza artificiale nel mio ruolo professionale.</p>
+                    <p>Ho deciso di creare questi percorsi perché ho visto in prima persona quanto sia diverso <em>usare</em> l'AI da <em>capirla</em>. E ho una figlia in età scolare: so cosa significa voler fare la cosa giusta, senza avere sempre gli strumenti giusti.</p>
+                    <p>Questi corsi non nascono da un'azienda o da una piattaforma. Nascono da una <strong>persona della vostra stessa città</strong>, con le stesse preoccupazioni — e con le competenze per trasformarle in qualcosa di utile.</p>
+                    <div class="certs-title">Certificazioni verificate</div>
+                    <div class="certs-grid">
+                        <div class="cert-card reveal">
+                            <div class="cert-issuer">IBM</div>
+                            <div class="cert-name">AI Fundamentals<br>Certificate</div>
+                            <div class="cert-platform">Coursera</div>
+                            <div class="cert-verified">✓ Verificato</div>
+                        </div>
+                        <div class="cert-card reveal">
+                            <div class="cert-issuer">Google</div>
+                            <div class="cert-name">Gemini AI &amp;<br>Generative AI</div>
+                            <div class="cert-platform">Coursera</div>
+                            <div class="cert-verified">✓ Verificato</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section dynamic-section">
+        <div class="wrap">
+            <p class="cta-label" id="cta-label"></p>
+            <h2 class="cta-title" id="cta-title"></h2>
+            <p class="cta-sub" id="cta-sub"></p>
+            <div class="cta-buttons">
+                <a href="#contatti" class="btn-white" id="cta-btn-primary"></a>
+                <a href="https://wa.me/393493727346" target="_blank" rel="noopener noreferrer" class="btn-wa-outline">
+                    <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.658 4.8 1.807 6.805L2 30l7.38-1.782A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.45 11.45 0 01-5.82-1.587l-.416-.248-4.38 1.057 1.1-4.258-.272-.437A11.5 11.5 0 1116 27.5zm6.29-8.62c-.345-.172-2.04-1.005-2.355-1.12-.315-.115-.545-.172-.775.173-.23.344-.888 1.12-1.088 1.35-.2.23-.4.258-.745.086-.345-.172-1.456-.537-2.773-1.71-1.025-.913-1.717-2.04-1.918-2.384-.2-.345-.021-.531.15-.703.155-.155.345-.4.517-.602.172-.2.23-.344.345-.573.115-.23.058-.43-.029-.603-.086-.172-.775-1.87-1.062-2.56-.28-.673-.563-.58-.775-.591-.2-.01-.43-.013-.66-.013s-.602.087-.917.43c-.315.344-1.2 1.172-1.2 2.858s1.228 3.315 1.4 3.545c.172.23 2.416 3.687 5.855 5.167.818.353 1.457.564 1.955.722.822.261 1.57.224 2.162.136.66-.099 2.04-.833 2.327-1.637.287-.804.287-1.493.2-1.637-.086-.143-.316-.23-.66-.4z"/></svg>
+                    Scrivimi su WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section" id="contatti" style="background:var(--surface);">
+        <div class="wrap--narrow">
+            <div style="text-align:center;margin-bottom:var(--space-4);">
+                <p class="section-label" style="justify-content:center;display:flex;">Contatti</p>
+                <h2 class="section-title reveal">Scrivimi,<br>ti rispondo di persona.</h2>
+            </div>
+            <div class="form-wrap reveal">
+                <div class="form-error" id="form-error"></div>
+                <form id="reg-form" action="https://formspree.io/f/meenadrn" method="POST">
+                    <!-- Sostituisci TUO_FORM_ID con l'ID del tuo form Formspree -->
+                    <div class="form-title">Richiedi un preventivo</div>
+                    <div class="form-subtitle">Risposta entro 48 ore · Percorso su misura</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" placeholder="Mario" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cognome">Cognome *</label>
+                            <input type="text" id="cognome" name="cognome" placeholder="Rossi" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="mario.rossi@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruolo">Sei…</label>
+                        <select id="ruolo" name="ruolo"></select>
+                    </div>
+                    <div class="form-group" id="form-extra-group">
+                        <label id="form-extra-label" for="form-extra-input"></label>
+                        <input type="text" id="form-extra-input" name="extra">
+                    </div>
+                    <div class="form-group">
+                        <label for="messaggio">Domande o note</label>
+                        <textarea id="messaggio" name="messaggio"></textarea>
+                    </div>
+                    <!-- Campo nascosto per sapere da quale percorso arriva il contatto -->
+                    <input type="hidden" name="percorso" id="form-percorso" value="famiglie">
+                    <button type="submit" class="btn-form" id="btn-form-submit">Invia la richiesta →</button>
+                    <p class="form-note">Nessun impegno. I tuoi dati non saranno mai condivisi con terzi.</p>
+                </form>
+                <div class="form-success" id="form-ok">
+                    <div style="font-size:2.5rem;color:var(--blue);margin-bottom:var(--space-4);">✓</div>
+                    <h3>Richiesta inviata!</h3>
+                    <p>Grazie per l'interesse. Ti rispondo personalmente entro 48 ore con tutti i dettagli sul corso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-inner">
+                <div class="footer-brand">Matteo <span>Azzali</span></div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="#metodo">Il metodo</a>
+                    <a href="#corso">Il corso</a>
+                    <a href="#chi-sono">Chi sono</a>
+                    <a href="#contatti">Contatti</a>
+                </nav>
+                <div class="footer-right">
+                    <a href="#contatti" class="footer-cta">Scrivimi →</a>
+                    <p class="footer-note">© 2026 Matteo Azzali · Castel San Giovanni</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script>
+        const CONTENT = {
+            famiglie: {
+                eyebrow: 'Piacenza &amp; dintorni · Per famiglie',
+                heroLines: [["Tuo","figlio","userà","l'<em>intelligenza</em>"],["<em>artificiale.</em>"],["Meglio","capirla","insieme."]],
+                heroAriaLabel: "Tuo figlio userà l'intelligenza artificiale. Meglio capirla insieme.",
+                heroSub: 'Un percorso pensato prima per i <strong>genitori</strong>, poi per i ragazzi: perché affrontare l\'AI in famiglia è più sicuro, più efficace e — soprattutto — più umano.',
+                heroCta: 'Contattami per avere maggiori informazioni →',
+                trust: ['IBM Generative AI Engineering.','Certificato Google Prompting Essentials.','Google Workspace with Gemini.','Per famiglie di ragazzi da 10–18 anni'],
+                sfidaTitle: "L'intelligenza artificiale<br>è già nelle loro mani.",
+                sfidaBody: "I ragazzi usano già ChatGPT per i compiti, i filtri AI su Instagram, i consigli di Spotify. La domanda non è <em>se</em> incontreranno l'AI — è <em>come</em> impareranno a usarla.",
+                fearCards: [{q:'"La uso per i compiti… ma non so se è giusto."',label:'Cosa dice tuo figlio'},{q:'"Non capisco abbastanza per guidarlo bene."',label:'Cosa pensi tu come genitore'},{q:'"Diventa un\'abilità o una scorciatoia?"',label:'La vera domanda'},{q:'"Chi gliene parla in modo serio e adatto all\'età?"',label:'Il bisogno reale'}],
+                metodoTitle: 'Prima tu. Poi insieme.',
+                metodoBody: "Un percorso costruito su come gli esseri umani imparano davvero: prima le fondamenta, poi l'esplorazione, poi l'autonomia.",
+                metodoNote: 'Ogni percorso è personalizzato — durata, orari e ritmo si concordano insieme.',
+                metodoCta: 'Scopri il programma completo →',
+                steps: [
+                    {num:'01',iconClass:'step-icon-1',tag:'Solo genitori',title:'Il genitore capisce per primo',body:"Prima tu, da solo. Cos'è davvero l'AI, dove aiuta e dove inganna. Esci con strumenti concreti — non con altra ansia.",benefits:["Capisci come funziona davvero ChatGPT","Sai distinguere rischi reali da paure esagerate","Hai un linguaggio per parlarne in famiglia"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>'},
+                    {num:'02',iconClass:'step-icon-2',tag:'Genitore + figlio',title:"Esplorate l'AI in coppia",body:"Genitore e figlio fianco a fianco: si prova, si sbaglia, si riflette. L'AI diventa un argomento di famiglia, non un tabù.",benefits:["Costruite regole condivise sull'utilizzo","Imparate a riconoscere le bugie dell'AI","Create un dialogo aperto sul futuro"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'},
+                    {num:'03',iconClass:'step-icon-3',tag:'Solo ragazzi',title:'Il ragazzo prende il volo',body:"Un progetto personale, tutto suo. Mette in pratica tutto ciò che ha imparato — con creatività, non con copia-incolla.",benefits:["Crea qualcosa di suo usando l'AI","Presenta il progetto e riceve un attestato","Esce più sicuro di sé e dello strumento"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'}
+                ],
+                moduliTitle: '6 incontri + 2 extra,<br>un percorso completo.',
+                moduliBody: "Il programma è pensato per partire dalle basi e arrivare all'uso consapevole e creativo dell'AI.",
+                moduli: [
+                    {num:'Modulo 01',badge:'Genitori',badgeClass:'for-parent',cardClass:'for-parent-card',title:"L'AI spiegata ai genitori",body:"Come funziona davvero, miti da sfatare, rischi reali e opportunità concrete. Esci pronto ad accompagnare tuo figlio."},
+                    {num:'Modulo 02',badge:'Genitori',badgeClass:'for-parent',cardClass:'for-parent-card',title:'Regole e confini in famiglia',body:"Come parlare di AI con i figli, come impostare regole sane sull'utilizzo, esempi pratici di conversazioni reali."},
+                    {num:'Modulo 03',badge:'Insieme',badgeClass:'',cardClass:'for-together-card',title:"Cos'è l'intelligenza artificiale?",body:'Prima sessione in coppia: cos\'è, come "pensa" una macchina, esempi dal quotidiano che già usate ogni giorno.'},
+                    {num:'Modulo 04',badge:'Insieme',badgeClass:'',cardClass:'for-together-card',title:"Parlare con l'AI",body:"Come si scrive un buon prompt, quando fidarsi e quando no, come usare ChatGPT per lo studio in modo onesto."},
+                    {num:'Modulo 05',badge:'Insieme',badgeClass:'',cardClass:'for-together-card',title:'AI e creatività',body:"Immagini, musica, testi generati dall'AI: arte o strumento? Si crea insieme, si discute insieme, si riflette insieme."},
+                    {num:'Modulo 06',badge:'Insieme',badgeClass:'',cardClass:'for-together-card',title:'Etica e responsabilità',body:"Bias, fake news, privacy: come riconoscere un contenuto AI, come non farsi ingannare, come usarla senza ingannare."},
+                    {num:'Extra 1',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Il futuro del lavoro',body:"Quali professioni cambieranno, quali nasceranno, come prepararsi — una conversazione aperta tra genitori e figli."},
+                    {num:'Extra 2',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Progetto finale',body:"Ogni ragazzo crea un mini-progetto AI personale e lo presenta. Attestato di partecipazione per tutti."}
+                ],
+                ctaLabel:'Percorso personalizzato · Su misura per la tua famiglia',ctaTitle:'Pronti a iniziare insieme?',ctaSub:"Ogni percorso è costruito sulle esigenze reali della tua famiglia. Scrivimi, parliamo insieme di obiettivi, tempi e modalità — e troviamo la soluzione giusta.",ctaBtn:'Contattami per un preventivo →',
+                formOptions:['Genitore interessato al corso','Insegnante / scuola','Studente (con consenso genitore)','Altro'],formExtraLabel:'Età del/dei figli (facoltativo)',formExtraPlaceholder:'es. 12 anni, prima media',formMsgPlaceholder:'Scrivimi liberamente — ogni domanda è benvenuta.'
+            },
+            professionisti: {
+                eyebrow:'Piacenza &amp; dintorni · Per professionisti',
+                heroLines:[["L'AI","non","ti"],["<em>sostituirà.</em>"],["Ti","sostituirà","chi","sa"],["usarla."]],
+                heroAriaLabel:"L'AI non ti sostituirà. Ti sostituirà chi sa usarla.",
+                heroSub:"Impara a lavorare con l'AI: dal prompting professionale alla creazione di agenti automatizzati per il tuo lavoro.",
+                heroCta:'Analizziamo insieme il tuo lavoro →',
+                trust:['Politecnico di Milano','IBM AI Engineering','Google Prompting','Esperienza in aziende reali'],
+                sfidaTitle:'Il tempo che perdi<br>ogni giorno esiste già.',
+                sfidaBody:"Non si tratta di automazione futura. Si tratta di task che fai oggi, ripetuti, che qualcosa già potrebbe fare al posto tuo.",
+                fearCards:[{q:'"Perdo tempo in task ripetitivi che l\'AI potrebbe fare al posto mio."',label:'Il costo invisibile'},{q:'"So che esiste ChatGPT ma non so come usarlo davvero per il mio settore."',label:'Il gap reale'},{q:'"I miei colleghi stanno già avanzando. Io sto guardando."',label:'Il rischio concreto'},{q:'"Vorrei automatizzare processi aziendali ma non so da dove iniziare."',label:'Il blocco iniziale'}],
+                metodoTitle:"Dal tuo lavoro, non dall'AI in astratto.",
+                metodoBody:"Ogni sessione parte da quello che fai davvero. Niente teoria fine a se stessa — solo strumenti che puoi usare il giorno dopo.",
+                metodoNote:'Il percorso si adatta al tuo settore, al tuo ruolo, al tuo ritmo.',
+                metodoCta:"Inizia con un'analisi del tuo lavoro →",
+                steps:[
+                    {num:'01',iconClass:'step-icon-1',tag:'Solo tu',title:"Capisci cosa può fare l'AI per te",body:"Analisi del tuo flusso lavorativo e identificazione delle opportunità. Usciamo con una mappa chiara di dove guadagni tempo.",benefits:['Mappi i tuoi processi ripetitivi','Identifichi i quick win immediati','Hai una priorità su cosa automatizzare prima'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'},
+                    {num:'02',iconClass:'step-icon-2',tag:'Prompting su misura',title:'Prompt efficaci per il tuo settore',body:"Impari a scrivere prompt professionali. Esci con template personalizzati che puoi usare da subito, senza sperimentare al buio.",benefits:['Template prompt per il tuo settore','Tecniche avanzate di prompting','Workflow AI integrabili nel tuo lavoro'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>'},
+                    {num:'03',iconClass:'step-icon-3',tag:'Agenti & Automazioni',title:'Costruisci il tuo agente AI',body:"Dal concetto al deploy, guidato passo passo. Crei un agente o un workflow reale per il tuo lavoro — non un esercizio accademico.",benefits:['Automazioni con n8n, Make o GPT Actions','Un progetto reale del tuo settore','Manutenzione e iterazione in autonomia'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'}
+                ],
+                moduliTitle:'6 moduli + 2 extra,<br>dal prompting agli agenti.',
+                moduliBody:"Un percorso progressivo: si parte da zero tecnicismi e si arriva a costruire automazioni reali per il tuo lavoro.",
+                moduli:[
+                    {num:'Modulo 01',badge:'Fondamenta',badgeClass:'',cardClass:'for-parent-card',title:"Come funziona davvero l'AI",body:"Senza tecnicismi inutili. Capisci cosa succede sotto il cofano — abbastanza per usarla bene, non di più."},
+                    {num:'Modulo 02',badge:'Tecnica',badgeClass:'for-parent',cardClass:'for-parent-card',title:'Prompt Engineering professionale',body:"La tecnica, non la magia. Struttura, contesto, output format: come scrivere istruzioni che funzionano davvero."},
+                    {num:'Modulo 03',badge:'Strumenti',badgeClass:'',cardClass:'for-together-card',title:'ChatGPT, Claude, Gemini: quale usare',body:"Ogni modello ha i suoi punti di forza. Impari a scegliere lo strumento giusto per il compito giusto."},
+                    {num:'Modulo 04',badge:'Pratica',badgeClass:'',cardClass:'for-together-card',title:'Template e workflow AI per il tuo lavoro',body:"Creiamo insieme i tuoi template personalizzati. Escono con te, pronti da usare il giorno dopo."},
+                    {num:'Modulo 05',badge:'Agenti',badgeClass:'',cardClass:'for-together-card',title:'Introduzione agli agenti AI',body:"n8n, Make, GPT Actions: cos'è un agente, come funziona, quando ha senso costruirne uno."},
+                    {num:'Modulo 06',badge:'Settore',badgeClass:'',cardClass:'for-together-card',title:'Automazione di processi: casi reali',body:"Esempi concreti dal tuo settore. Non casi generici — situazioni che riconosci perché ci sei dentro."},
+                    {num:'Extra 1',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Privacy, sicurezza e dati aziendali',body:"Cosa puoi mettere in un prompt e cosa no. Come proteggere i dati sensibili quando si usa l'AI in azienda."},
+                    {num:'Extra 2',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Il tuo progetto: costruiamo insieme',body:"Costruiamo un agente o workflow reale per il tuo lavoro. Esci con qualcosa che funziona, non con un'idea."}
+                ],
+                ctaLabel:'Percorso professionale · Su misura per il tuo settore',ctaTitle:'Analizziamo insieme il tuo lavoro.',ctaSub:"Prima capisco cosa fai, poi costruiamo il percorso. Niente di standard — solo quello che ti serve davvero.",ctaBtn:"Prenota un'analisi gratuita →",
+                formOptions:['Libero professionista','Lavoratore dipendente','Imprenditore / piccola impresa','Manager / responsabile di team','Altro'],formExtraLabel:'Il tuo settore o ruolo',formExtraPlaceholder:'es. Commercialista, Resp. marketing, Agente immobiliare…',formMsgPlaceholder:'Descrivi brevemente il tuo lavoro e dove pensi di perdere più tempo — ti rispondo con idee concrete.'
+            },
+            insegnanti: {
+                eyebrow:'Piacenza &amp; dintorni · Per insegnanti',
+                heroLines:[["Insegni","già","tutto."],["L'AI","ti","aiuta"],["a","farlo","<em>meglio.</em>"]],
+                heroAriaLabel:"Insegni già tutto. L'AI ti aiuta a farlo meglio.",
+                heroSub:"Dal correggere compiti più velocemente al creare spiegazioni personalizzate: l'AI come alleata didattica, non come minaccia.",
+                heroCta:'Parliamone: ogni scuola è diversa →',
+                trust:['Politecnico di Milano','IBM AI Engineering','Esperienza con docenti','Piacenza e dintorni'],
+                sfidaTitle:"L'AI è già in classe.<br>La domanda è chi la gestisce.",
+                sfidaBody:"I tuoi studenti la usano già — per fare compiti, per scrivere, per cercare risposte. Il nodo non è vietarla. È capirla prima di loro.",
+                fearCards:[{q:'"I miei studenti usano l\'AI per copiare. Non so come gestirlo."',label:'Il problema concreto'},{q:'"Correggere 30 elaborati mi porta via ore. Ci deve essere un modo migliore."',label:'Il tempo rubato'},{q:'"Vorrei personalizzare le spiegazioni ma non ho il tempo per farlo."',label:'Il limite strutturale'},{q:'"Sento parlare di AI in classe ma non so da dove iniziare senza fare danni."',label:'Il blocco iniziale'}],
+                metodoTitle:'Prima capisci. Poi insegni.',
+                metodoBody:"Non puoi guidare gli studenti su qualcosa che non conosci. Il percorso parte sempre da te — poi arriviamo alla classe.",
+                metodoNote:'Il percorso si adatta alla tua materia, al tuo livello e alle caratteristiche della tua scuola.',
+                metodoCta:'Parliamo della tua situazione →',
+                steps:[
+                    {num:'01',iconClass:'step-icon-1',tag:'Capire per insegnare',title:"Prima capisci come funziona l'AI",body:"Così puoi spiegarla ai tuoi studenti e guidarli con autorevolezza — non con il manuale in mano.",benefits:["Capisci cosa sa fare e cosa non sa fare","Hai un linguaggio preciso per parlarne in classe","Esci senza ansia, con strumenti concreti"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'},
+                    {num:'02',iconClass:'step-icon-2',tag:"L'AI come assistente",title:"L'AI amplifica il tuo tempo",body:"Correzioni più rapide, spiegazioni adattive, materiali su misura. Fai le stesse cose — in meno tempo, con più qualità.",benefits:["Correggi elaborati in meno tempo","Generi esercizi e verifiche su misura","Crei spiegazioni per diversi livelli in pochi minuti"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>'},
+                    {num:'03',iconClass:'step-icon-3',tag:'Regole e metodo in classe',title:"Il problema dei compiti copiati diventa un'opportunità",body:"Come impostare una policy sull'uso dell'AI con gli studenti — e trasformare una minaccia in uno strumento didattico.",benefits:["Costruisci regole chiare e condivise","Insegni a usare l'AI in modo onesto","Trasformi il problema in lezione"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>'}
+                ],
+                moduliTitle:'6 moduli + 2 extra,<br>dal capire al fare.',
+                moduliBody:"Un percorso pensato per chi insegna: parte dall'AI come strumento personale e arriva alla gestione dell'AI in classe.",
+                moduli:[
+                    {num:'Modulo 01',badge:'Fondamenta',badgeClass:'',cardClass:'for-parent-card',title:"L'AI spiegata agli insegnanti",body:"Cosa sa fare, cosa non sa fare. Niente tecnicismi — solo quello che ti serve per capire e poi spiegare."},
+                    {num:'Modulo 02',badge:'Didattica',badgeClass:'for-parent',cardClass:'for-parent-card',title:"Correggere con l'AI",body:"Velocità senza perdere la qualità. Come usare l'AI per correggere elaborati, con criteri tuoi, in meno tempo."},
+                    {num:'Modulo 03',badge:'Materiali',badgeClass:'',cardClass:'for-together-card',title:'Creare spiegazioni adattive',body:"Spiegazioni diverse per livelli diversi, generate in pochi minuti. Più personalizzazione, meno tempo."},
+                    {num:'Modulo 04',badge:'Contenuti',badgeClass:'',cardClass:'for-together-card',title:'Generare esercizi e verifiche',body:"Esercizi su misura per la tua classe, per il tuo programma, per il livello che ti serve. Senza partire da zero."},
+                    {num:'Modulo 05',badge:'Rilevamento',badgeClass:'',cardClass:'for-together-card',title:"Riconoscere un elaborato scritto con l'AI",body:"Non esistono strumenti infallibili. Ma esistono segnali chiari — impari a leggerli e a usarli nel dialogo con gli studenti."},
+                    {num:'Modulo 06',badge:'Policy',badgeClass:'',cardClass:'for-together-card',title:'Costruire una policy AI per la tua classe',body:"Regole chiare, condivise, sostenibili. Come impostare i confini senza doverli difendere ogni giorno."},
+                    {num:'Extra 1',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:"L'AI come strumento di inclusione",body:"DSA, BES, plusdotazione: come l'AI può aiutarti a personalizzare davvero, non solo sulla carta."},
+                    {num:'Extra 2',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Progetto finale: il tuo kit didattico',body:"Esci con un kit pronto: template di correzione, esercizi generati, policy di classe. Tuo, subito."}
+                ],
+                ctaLabel:'Percorso per docenti · Adattato alla tua scuola',ctaTitle:'Parliamone: ogni scuola è diversa.',ctaSub:"Prima di costruire il percorso, capisco la tua situazione — materia, livello, contesto. Non esiste un corso uguale per tutti.",ctaBtn:'Raccontami la tua situazione →',
+                formOptions:['Insegnante scuola media','Insegnante scuola superiore','Coordinatore didattico','Dirigente scolastico','Altro'],formExtraLabel:'Materia e tipo di scuola',formExtraPlaceholder:'es. Italiano, liceo scientifico, 3ª media…',formMsgPlaceholder:"Raccontami la tua situazione — con l'AI in classe, con gli studenti, con i colleghi. Ti rispondo con idee concrete."
+            }
+        };
+
+        let currentTrack = 'famiglie';
+        let heroAnimated = false;
+        let isSwitching = false;
+        let cursorIdleTimeout = null;
+        let cursorActive = true;
+
+        function buildHeroTitle(lines, ariaLabel) {
+            const h1 = document.getElementById('hero-title');
+            h1.setAttribute('aria-label', ariaLabel);
+            h1.innerHTML = lines.map(words => `<span class="mag-line">${words.map(w => `<span class="mag-word">${w}</span>`).join(' ')}</span>`).join('');
+        }
+        function buildTrust(items) { document.getElementById('trust-items').innerHTML = items.map(t => `<div class="trust-item">${t}</div>`).join(''); }
+        function buildFear(cards) { document.getElementById('fear-grid').innerHTML = cards.map(c => `<div class="fear-card reveal"><p>${c.q}</p><span>${c.label}</span></div>`).join(''); }
+        function buildSteps(steps) {
+            const accents = ['blue','sky','navy'];
+            document.getElementById('steps-grid').innerHTML = steps.map((s,i) => `
+                <div class="step reveal">
+                    <span class="step-num">${s.num}</span>
+                    <div class="step-icon ${s.iconClass}" aria-hidden="true">${s.svg}</div>
+                    <div class="step-accent step-accent-${accents[i]}"></div>
+                    <h3>${s.title}</h3><p>${s.body}</p>
+                    <ul class="step-benefits">${s.benefits.map(b=>`<li>${b}</li>`).join('')}</ul>
+                    <span class="step-tag">${s.tag}</span>
+                </div>`).join('');
+        }
+        function buildModuli(moduli) {
+            document.getElementById('moduli-grid').innerHTML = moduli.map(m => `
+                <div class="modulo ${m.cardClass} reveal">
+                    <div class="modulo-header"><span class="modulo-num">${m.num}</span><span class="modulo-for ${m.badgeClass}">${m.badge}</span></div>
+                    <h3>${m.title}</h3><p>${m.body}</p>
+                </div>`).join('');
+        }
+        function buildForm(d) {
+            document.getElementById('ruolo').innerHTML = '<option value="">Seleziona</option>' + d.formOptions.map(o => `<option>${o}</option>`).join('');
+            document.getElementById('form-extra-label').textContent = d.formExtraLabel;
+            document.getElementById('form-extra-input').placeholder = d.formExtraPlaceholder;
+            document.getElementById('messaggio').placeholder = d.formMsgPlaceholder;
+        }
+        function renderTrack(d) {
+            document.getElementById('hero-eyebrow').innerHTML = `<span class="hero-eyebrow-dot" aria-hidden="true"></span> ${d.eyebrow}`;
+            buildHeroTitle(d.heroLines, d.heroAriaLabel);
+            document.getElementById('hero-sub').innerHTML = d.heroSub;
+            document.getElementById('hero-cta-primary').textContent = d.heroCta;
+            buildTrust(d.trust);
+            document.getElementById('sfida-title').innerHTML = d.sfidaTitle;
+            document.getElementById('sfida-body').innerHTML = d.sfidaBody;
+            buildFear(d.fearCards);
+            document.getElementById('metodo-title').textContent = d.metodoTitle;
+            document.getElementById('metodo-body').textContent = d.metodoBody;
+            document.getElementById('metodo-note').textContent = d.metodoNote;
+            document.getElementById('metodo-cta').textContent = d.metodoCta;
+            buildSteps(d.steps);
+            document.getElementById('moduli-title').innerHTML = d.moduliTitle;
+            document.getElementById('moduli-body').textContent = d.moduliBody;
+            buildModuli(d.moduli);
+            document.getElementById('cta-label').textContent = d.ctaLabel;
+            document.getElementById('cta-title').textContent = d.ctaTitle;
+            document.getElementById('cta-sub').textContent = d.ctaSub;
+            document.getElementById('cta-btn-primary').textContent = d.ctaBtn;
+            buildForm(d);
+            // Aggiorna il campo nascosto del percorso nel form
+            document.getElementById('form-percorso').value = currentTrack;
+            bindCursor();
+        }
+
+        function createRipple(e, button) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+            button.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        }
+
+        function typewriterHero() {
+            const words = document.querySelectorAll('.mag-word');
+            const wordsToAnimate = Math.min(words.length, 8);
+            words.forEach((w,i) => {
+                if (i < wordsToAnimate) { w.classList.add('typing'); w.style.animationDelay = (i*0.04)+'s'; }
+            });
+            setTimeout(() => { words.forEach(w => w.classList.remove('typing')); }, wordsToAnimate*40+200);
+        }
+
+        function switchTo(track, event) {
+            if (track === currentTrack || isSwitching) return;
+            isSwitching = true;
+            currentTrack = track;
+            if (event && event.currentTarget) createRipple(event, event.currentTarget);
+            document.body.classList.add('scroll-locked');
+            if (window.gsap) { gsap.killTweensOf('.mag-word,.hero-eyebrow,.hero-sub,.hero-actions,.hero-scroll-hint'); }
+            document.querySelectorAll('.track-pill').forEach(p => { p.classList.toggle('active', p.dataset.track === track); p.setAttribute('aria-pressed', String(p.dataset.track === track)); });
+            history.replaceState(null, '', '#' + track);
+                        // Aggiorna la label "Corsi AI per..."
+            const labelNames = { famiglie: 'Famiglie', professionisti: 'Professionisti', insegnanti: 'Insegnanti' };
+            document.getElementById('track-label-target').textContent = labelNames[track];
+            const sections = document.querySelectorAll('.dynamic-section');
+            sections.forEach((s,i) => { s.style.transitionDelay = (i*30)+'ms'; s.classList.add('switching'); });
+            setTimeout(() => {
+                renderTrack(CONTENT[track]);
+                document.getElementById('reg-form').style.display = '';
+                document.getElementById('form-ok').classList.remove('show');
+                document.getElementById('form-error').classList.remove('show');
+                document.getElementById('btn-form-submit').disabled = false;
+                document.getElementById('reg-form').reset();
+                sections.forEach(s => { s.classList.remove('switching'); s.style.transitionDelay = '0ms'; });
+                typewriterHero();
+                heroAnimated = false;
+                requestAnimationFrame(() => requestAnimationFrame(runHeroEntrance));
+                setTimeout(() => { document.body.classList.remove('scroll-locked'); isSwitching = false; }, 150);
+            }, 350);
+        }
+
+        const cb = document.getElementById('cb');
+        let mx = innerWidth/2, my = innerHeight/2, bx = mx, by = my;
+        let cursorTickId = null;
+        function startCursorTick() {
+            if (cursorTickId) return;
+            cursorActive = true;
+            function tick() {
+                if (!cursorActive) { cursorTickId = null; return; }
+                bx += (mx-bx)*0.10; by += (my-by)*0.10;
+                if (cb.style.display !== 'none') { cb.style.left = bx+'px'; cb.style.top = by+'px'; }
+                cursorTickId = requestAnimationFrame(tick);
+            }
+            cursorTickId = requestAnimationFrame(tick);
+        }
+        function stopCursorTick() { cursorActive = false; if (cursorTickId) { cancelAnimationFrame(cursorTickId); cursorTickId = null; } }
+        function resetCursorIdle() { if (cursorIdleTimeout) clearTimeout(cursorIdleTimeout); if (!cursorActive) startCursorTick(); cursorIdleTimeout = setTimeout(stopCursorTick, 3000); }
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; resetCursorIdle(); });
+        document.addEventListener('mousedown', () => cb.classList.add('clicking'));
+        document.addEventListener('mouseup', () => cb.classList.remove('clicking'));
+        document.addEventListener('touchstart', () => { if (cb.style.display !== 'none') cb.style.display = 'none'; });
+        if (window.matchMedia('(hover: hover)').matches) { startCursorTick(); resetCursorIdle(); } else { cb.style.display = 'none'; }
+        function bindCursor() {
+            document.querySelectorAll('a, button, .mag-word, .modulo, .fear-card, .track-pill').forEach(el => {
+                el.addEventListener('mouseenter', () => cb.classList.add('big'));
+                el.addEventListener('mouseleave', () => cb.classList.remove('big'));
+            });
+        }
+
+        const STRENGTH=45, RADIUS=190;
+        function onMouseMove(e) {
+            if (!window.gsap) return;
+            document.querySelectorAll('.mag-word').forEach(w => {
+                const r = w.getBoundingClientRect(), cx = r.left+r.width/2, cy = r.top+r.height/2;
+                const dx = e.clientX-cx, dy = e.clientY-cy, d = Math.sqrt(dx*dx+dy*dy);
+                if (d < RADIUS) { const f = 1-d/RADIUS; gsap.to(w, {x:dx*f*(STRENGTH/RADIUS)*2.5, y:dy*f*(STRENGTH/RADIUS)*2.5, rotation:(dx/RADIUS)*7*f, scale:1+f*0.07, duration:0.5, ease:'power3.out', overwrite:'auto'}); }
+                else { gsap.to(w, {x:0,y:0,rotation:0,scale:1, duration:0.9, ease:'elastic.out(1,0.35)', overwrite:'auto'}); }
+            });
+        }
+        if (window.matchMedia('(hover: hover)').matches) document.addEventListener('mousemove', onMouseMove);
+
+        function runHeroEntrance() {
+            if (heroAnimated || !window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            heroAnimated = true;
+            gsap.killTweensOf('.mag-word,.hero-eyebrow,.hero-sub,.hero-actions,.hero-scroll-hint');
+            gsap.set('.mag-word', {opacity:1, y:0});
+            gsap.set('.hero-eyebrow', {opacity:0, y:16});
+            gsap.set('.hero-sub', {opacity:0, y:16});
+            gsap.set('.hero-actions', {opacity:0, y:16});
+            gsap.set('.hero-scroll-hint', {opacity:0});
+            const tl = gsap.timeline({defaults:{ease:'power3.out'}});
+            tl.to('.hero-eyebrow', {opacity:1, y:0, duration:0.5})
+              .to('.hero-sub', {opacity:1, y:0, duration:0.6}, '-=0.2')
+              .to('.hero-actions', {opacity:1, y:0, duration:0.5}, '-=0.3')
+              .to('.hero-scroll-hint', {opacity:1, duration:0.4}, '-=0.2');
+        }
+
+        const ham = document.getElementById('ham');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function closeMobileMenu() { ham.classList.remove('open'); mobileMenu.classList.remove('open'); ham.setAttribute('aria-expanded','false'); }
+        ham.addEventListener('click', () => { const isOpen = mobileMenu.classList.toggle('open'); ham.classList.toggle('open', isOpen); ham.setAttribute('aria-expanded', String(isOpen)); });
+
+        (function init() {
+            const hash = window.location.hash.replace('#','');
+            const startTrack = ['famiglie','professionisti','insegnanti'].includes(hash) ? hash : 'famiglie';
+            currentTrack = startTrack;
+            document.querySelectorAll('.track-pill').forEach(p => { p.classList.toggle('active', p.dataset.track === startTrack); p.setAttribute('aria-pressed', String(p.dataset.track === startTrack)); });
+            renderTrack(CONTENT[startTrack]);
+            bindCursor();
+            typewriterHero();
+            requestAnimationFrame(() => requestAnimationFrame(runHeroEntrance));
+        })();
+    </script>
+</body>
+</html>
