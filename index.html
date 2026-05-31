@@ -279,7 +279,7 @@
         .about-body p { color: var(--gray-500); line-height: 1.8; font-size: var(--text-base); margin-bottom: var(--space-5); max-width: 58ch; }
         .about-body strong { color: var(--gray-900); }
         .certs-title { font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-300); margin-top: var(--space-8); margin-bottom: var(--space-5); }
-        .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(200px,100%),1fr)); gap: var(--space-4); }
         .cert-card { border: 1px solid var(--gray-100); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--white); transition: box-shadow var(--transition), border-color var(--transition); }
         .cert-card:hover { box-shadow: var(--shadow-sm); border-color: var(--blue-mid); }
         .cert-issuer { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue); margin-bottom: var(--space-2); }
@@ -544,7 +544,7 @@
     <section class="section" id="chi-sono">
         <div class="wrap">
             <p class="section-label reveal">Chi sono</p>
-            <h2 class="section-title reveal">Una persona reale,<br>non una piattaforma.</h2>
+            <h2 class="section-title reveal">Una persona reale,<br>dalla stessa città.</h2>
             <div class="chi-sono-grid">
                 <div class="profile-card reveal">
                     <div class="profile-photo">
@@ -552,29 +552,48 @@
                     </div>
                     <div class="profile-info">
                         <div class="profile-name">Matteo Azzali</div>
-                        <div class="profile-role">Formatore AI · Demand Planner</div>
+                        <div class="profile-role">Formatore AI · Supply Chain &amp; Data Expert</div>
                         <div class="profile-badges">
-                            <span class="badge">Politecnico di Milano</span>
+                            <span class="badge">Ing. Trasporti · Politecnico di Milano</span>
                             <span class="badge">Piacenza</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-body">
-                    <p>Mi chiamo <strong>Matteo Azzali</strong>, sono laureato al <strong>Politecnico di Milano</strong> e lavoro quotidianamente con dati, algoritmi e intelligenza artificiale nel mio ruolo professionale.</p>
-                    <p>Ho deciso di creare questi percorsi perché ho visto in prima persona quanto sia diverso <em>usare</em> l'AI da <em>capirla</em>. E ho una figlia in età scolare: so cosa significa voler fare la cosa giusta, senza avere sempre gli strumenti giusti.</p>
+                    <p>Mi chiamo <strong>Matteo Azzali</strong>. Sono laureato in <strong>Ingegneria dei Trasporti al Politecnico di Milano</strong> — una formazione tecnico-quantitativa che mi ha insegnato ad analizzare sistemi complessi, ottimizzare processi e guardare all'innovazione come a uno strumento concreto, non come a una moda.</p>
+                    <p>Dal 2012 lavoro ogni giorno con dati, previsioni e algoritmi. L'intelligenza artificiale non è una novità che ho scoperto su YouTube: è parte del mio lavoro reale, da anni. Ho deciso di condividere quello che so perché ho visto — in prima persona — quanto sia diverso <em>usare</em> l'AI da <em>capirla davvero</em>.</p>
+                    <p>E ho una figlia in età scolare. Sa già cos'è ChatGPT. Questo mi ha fatto capire che il tema non riguarda solo i professionisti — riguarda le famiglie, gli insegnanti, chiunque voglia accompagnare qualcuno (o se stesso) in questo cambiamento con consapevolezza, non con ansia.</p>
                     <p>Questi corsi non nascono da un'azienda o da una piattaforma. Nascono da una <strong>persona della vostra stessa città</strong>, con le stesse preoccupazioni — e con le competenze per trasformarle in qualcosa di utile.</p>
                     <div class="certs-title">Certificazioni verificate</div>
                     <div class="certs-grid">
                         <div class="cert-card reveal">
                             <div class="cert-issuer">IBM</div>
-                            <div class="cert-name">AI Fundamentals<br>Certificate</div>
-                            <div class="cert-platform">Coursera</div>
+                            <div class="cert-name">Generative AI Engineering<br><span style="font-size:0.7rem;color:var(--gray-300);">Professional Certificate · 16 corsi</span></div>
+                            <div class="cert-platform">Coursera · Ago 2025</div>
+                            <div class="cert-verified">✓ Verificato</div>
+                        </div>
+                        <div class="cert-card reveal">
+                            <div class="cert-issuer">IBM</div>
+                            <div class="cert-name">RAG and Agentic AI<br><span style="font-size:0.7rem;color:var(--gray-300);">Professional Certificate · 8 corsi</span></div>
+                            <div class="cert-platform">Coursera · Nov 2025</div>
                             <div class="cert-verified">✓ Verificato</div>
                         </div>
                         <div class="cert-card reveal">
                             <div class="cert-issuer">Google</div>
-                            <div class="cert-name">Gemini AI &amp;<br>Generative AI</div>
-                            <div class="cert-platform">Coursera</div>
+                            <div class="cert-name">Prompting Essentials<br><span style="font-size:0.7rem;color:var(--gray-300);">Professional Certificate</span></div>
+                            <div class="cert-platform">Google · 2025</div>
+                            <div class="cert-verified">✓ Verificato</div>
+                        </div>
+                        <div class="cert-card reveal">
+                            <div class="cert-issuer">Google</div>
+                            <div class="cert-name">Fondamenti di Marketing Digitale<br><span style="font-size:0.7rem;color:var(--gray-300);">IAB Europe Endorsed</span></div>
+                            <div class="cert-platform">Google Digital Training · 2018</div>
+                            <div class="cert-verified">✓ Verificato</div>
+                        </div>
+                        <div class="cert-card reveal">
+                            <div class="cert-issuer">Fastweb</div>
+                            <div class="cert-name">Prompt Engineering<br><span style="font-size:0.7rem;color:var(--gray-300);">Come interrogare le AI</span></div>
+                            <div class="cert-platform">Fastweb Digital Academy · Feb 2025</div>
                             <div class="cert-verified">✓ Verificato</div>
                         </div>
                     </div>
@@ -673,19 +692,19 @@
     <script>
         const CONTENT = {
             famiglie: {
-                eyebrow: 'Piacenza &amp; dintorni · Per famiglie',
+                eyebrow: 'Piacenza &amp; dintorni · Percorso su misura per famiglie',
                 heroLines: [["Tuo","figlio","userà","l'<em>intelligenza</em>"],["<em>artificiale.</em>"],["Meglio","capirla","insieme."]],
                 heroAriaLabel: "Tuo figlio userà l'intelligenza artificiale. Meglio capirla insieme.",
-                heroSub: 'Un percorso pensato prima per i <strong>genitori</strong>, poi per i ragazzi: perché affrontare l\'AI in famiglia è più sicuro, più efficace e — soprattutto — più umano.',
+                heroSub: 'Un percorso costruito <strong>su di voi</strong>: prima i genitori capiscono, poi si esplora insieme. Perché accompagnare tuo figlio nell\'AI è più utile di qualsiasi filtro o divieto.',
                 heroCta: 'Contattami per avere maggiori informazioni →',
-                trust: ['IBM Generative AI Engineering.','Certificato Google Prompting Essentials.','Google Workspace with Gemini.','Per famiglie di ragazzi da 10–18 anni'],
+                trust: ['IBM Generative AI Engineering (Coursera)','IBM RAG &amp; Agentic AI (Coursera)','Google Prompting Essentials (Coursera)','Fastweb · Prompt Engineering'],
                 sfidaTitle: "L'intelligenza artificiale<br>è già nelle loro mani.",
-                sfidaBody: "I ragazzi usano già ChatGPT per i compiti, i filtri AI su Instagram, i consigli di Spotify. La domanda non è <em>se</em> incontreranno l'AI — è <em>come</em> impareranno a usarla.",
+                sfidaBody: "I ragazzi usano già ChatGPT per i compiti, i filtri AI su Instagram, i suggerimenti di Spotify. Non è una questione di futuro — è adesso. La vera domanda non è <em>se</em> incontreranno l'AI: è <em>chi</em> li aiuterà a capirla.",
                 fearCards: [{q:'"La uso per i compiti… ma non so se è giusto."',label:'Cosa dice tuo figlio'},{q:'"Non capisco abbastanza per guidarlo bene."',label:'Cosa pensi tu come genitore'},{q:'"Diventa un\'abilità o una scorciatoia?"',label:'La vera domanda'},{q:'"Chi gliene parla in modo serio e adatto all\'età?"',label:'Il bisogno reale'}],
                 metodoTitle: 'Prima tu. Poi insieme.',
-                metodoBody: "Un percorso costruito su come gli esseri umani imparano davvero: prima le fondamenta, poi l'esplorazione, poi l'autonomia.",
-                metodoNote: 'Ogni percorso è personalizzato — durata, orari e ritmo si concordano insieme.',
-                metodoCta: 'Scopri il programma completo →',
+                metodoBody: "Non esiste un percorso standard qui. Prima capisco la vostra situazione — l'età dei figli, le preoccupazioni, il livello di partenza — poi costruiamo insieme qualcosa che ha senso per la vostra famiglia.",
+                metodoNote: 'Durata, orari e argomenti si concordano insieme. Non vendo pacchetti preconfezionati.',
+                metodoCta: 'Raccontami la tua situazione →',
                 steps: [
                     {num:'01',iconClass:'step-icon-1',tag:'Solo genitori',title:'Il genitore capisce per primo',body:"Prima tu, da solo. Cos'è davvero l'AI, dove aiuta e dove inganna. Esci con strumenti concreti — non con altra ansia.",benefits:["Capisci come funziona davvero ChatGPT","Sai distinguere rischi reali da paure esagerate","Hai un linguaggio per parlarne in famiglia"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>'},
                     {num:'02',iconClass:'step-icon-2',tag:'Genitore + figlio',title:"Esplorate l'AI in coppia",body:"Genitore e figlio fianco a fianco: si prova, si sbaglia, si riflette. L'AI diventa un argomento di famiglia, non un tabù.",benefits:["Costruite regole condivise sull'utilizzo","Imparate a riconoscere le bugie dell'AI","Create un dialogo aperto sul futuro"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'},
@@ -710,20 +729,20 @@
                 eyebrow:'Piacenza &amp; dintorni · Per professionisti',
                 heroLines:[["L'AI","non","ti"],["<em>sostituirà.</em>"],["Ti","sostituirà","chi","sa"],["usarla."]],
                 heroAriaLabel:"L'AI non ti sostituirà. Ti sostituirà chi sa usarla.",
-                heroSub:"Impara a lavorare con l'AI: dal prompting professionale alla creazione di agenti automatizzati per il tuo lavoro.",
+                heroSub:"Il percorso parte da quello che fai davvero ogni giorno — non dall'AI in astratto. Usciamo con strumenti che puoi usare il giorno dopo, non con teoria che dimentichi in una settimana.",
                 heroCta:'Analizziamo insieme il tuo lavoro →',
-                trust:['Politecnico di Milano','IBM AI Engineering','Google Prompting','Esperienza in aziende reali'],
+                trust:['IBM Generative AI Engineering (Coursera)','IBM RAG &amp; Agentic AI (Coursera)','Google Prompting Essentials (Coursera)','Fastweb · Prompt Engineering'],
                 sfidaTitle:'Il tempo che perdi<br>ogni giorno esiste già.',
-                sfidaBody:"Non si tratta di automazione futura. Si tratta di task che fai oggi, ripetuti, che qualcosa già potrebbe fare al posto tuo.",
+                sfidaBody:"Non parliamo di automazione futura. Parliamo di email che scrivi ogni giorno, report che rifai ogni settimana, ricerche che fai ogni volta da capo. L'AI può già farlo — il punto è sapere esattamente come e dove applicarla nel tuo lavoro.",
                 fearCards:[{q:'"Perdo tempo in task ripetitivi che l\'AI potrebbe fare al posto mio."',label:'Il costo invisibile'},{q:'"So che esiste ChatGPT ma non so come usarlo davvero per il mio settore."',label:'Il gap reale'},{q:'"I miei colleghi stanno già avanzando. Io sto guardando."',label:'Il rischio concreto'},{q:'"Vorrei automatizzare processi aziendali ma non so da dove iniziare."',label:'Il blocco iniziale'}],
                 metodoTitle:"Dal tuo lavoro, non dall'AI in astratto.",
-                metodoBody:"Ogni sessione parte da quello che fai davvero. Niente teoria fine a se stessa — solo strumenti che puoi usare il giorno dopo.",
-                metodoNote:'Il percorso si adatta al tuo settore, al tuo ruolo, al tuo ritmo.',
+                metodoBody:"Prima mi racconti il tuo lavoro — davvero. Poi analizziamo insieme dove perdi tempo, dove l'AI aiuta e dove no. Ogni sessione ha un output concreto: un template, un workflow, uno strumento pronto. Niente di accademico.",
+                metodoNote:'Il percorso si costruisce sul tuo settore e sul tuo ruolo. Non ho un catalogo di corsi — ho un metodo e la tua situazione specifica.',
                 metodoCta:"Inizia con un'analisi del tuo lavoro →",
                 steps:[
                     {num:'01',iconClass:'step-icon-1',tag:'Solo tu',title:"Capisci cosa può fare l'AI per te",body:"Analisi del tuo flusso lavorativo e identificazione delle opportunità. Usciamo con una mappa chiara di dove guadagni tempo.",benefits:['Mappi i tuoi processi ripetitivi','Identifichi i quick win immediati','Hai una priorità su cosa automatizzare prima'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'},
                     {num:'02',iconClass:'step-icon-2',tag:'Prompting su misura',title:'Prompt efficaci per il tuo settore',body:"Impari a scrivere prompt professionali. Esci con template personalizzati che puoi usare da subito, senza sperimentare al buio.",benefits:['Template prompt per il tuo settore','Tecniche avanzate di prompting','Workflow AI integrabili nel tuo lavoro'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>'},
-                    {num:'03',iconClass:'step-icon-3',tag:'Agenti & Automazioni',title:'Costruisci il tuo agente AI',body:"Dal concetto al deploy, guidato passo passo. Crei un agente o un workflow reale per il tuo lavoro — non un esercizio accademico.",benefits:['Automazioni con n8n, Make o GPT Actions','Un progetto reale del tuo settore','Manutenzione e iterazione in autonomia'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'}
+                    {num:'03',iconClass:'step-icon-3',tag:'Agenti & Automazioni',title:'Costruisci il tuo agente AI',body:"Dal concetto al deploy, guidato passo passo. Crei un agente o un workflow reale per il tuo lavoro, persoalizzato per i tuoi bisogni.",benefits:['Automazioni con agenti Copilot, GEN o GPT Actions','Un progetto reale del tuo settore','Manutenzione e iterazione in autonomia'],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'}
                 ],
                 moduliTitle:'6 moduli + 2 extra,<br>dal prompting agli agenti.',
                 moduliBody:"Un percorso progressivo: si parte da zero tecnicismi e si arriva a costruire automazioni reali per il tuo lavoro.",
@@ -737,22 +756,22 @@
                     {num:'Extra 1',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Privacy, sicurezza e dati aziendali',body:"Cosa puoi mettere in un prompt e cosa no. Come proteggere i dati sensibili quando si usa l'AI in azienda."},
                     {num:'Extra 2',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Il tuo progetto: costruiamo insieme',body:"Costruiamo un agente o workflow reale per il tuo lavoro. Esci con qualcosa che funziona, non con un'idea."}
                 ],
-                ctaLabel:'Percorso professionale · Su misura per il tuo settore',ctaTitle:'Analizziamo insieme il tuo lavoro.',ctaSub:"Prima capisco cosa fai, poi costruiamo il percorso. Niente di standard — solo quello che ti serve davvero.",ctaBtn:"Prenota un'analisi gratuita →",
+                ctaLabel:'Percorso professionale · Su misura per il tuo settore',ctaTitle:'Analizziamo insieme il tuo lavoro.',ctaSub:"Scrivimi e dimmi cosa fai — il settore, il ruolo, dove senti che perdi più tempo. Ti rispondo con idee concrete su dove l'AI può aiutarti davvero, già nella prima sessione.",ctaBtn:"Prenota un'analisi gratuita →",
                 formOptions:['Libero professionista','Lavoratore dipendente','Imprenditore / piccola impresa','Manager / responsabile di team','Altro'],formExtraLabel:'Il tuo settore o ruolo',formExtraPlaceholder:'es. Commercialista, Resp. marketing, Agente immobiliare…',formMsgPlaceholder:'Descrivi brevemente il tuo lavoro e dove pensi di perdere più tempo — ti rispondo con idee concrete.'
             },
             insegnanti: {
                 eyebrow:'Piacenza &amp; dintorni · Per insegnanti',
                 heroLines:[["Insegni","già","tutto."],["L'AI","ti","aiuta"],["a","farlo","<em>meglio.</em>"]],
                 heroAriaLabel:"Insegni già tutto. L'AI ti aiuta a farlo meglio.",
-                heroSub:"Dal correggere compiti più velocemente al creare spiegazioni personalizzate: l'AI come alleata didattica, non come minaccia.",
+                heroSub:"L'AI è già in classe — i tuoi studenti la usano, che tu lo sappia o no. Il percorso ti aiuta a capirla prima di loro: così puoi guidarli, non rincorrerli.",
                 heroCta:'Parliamone: ogni scuola è diversa →',
-                trust:['Politecnico di Milano','IBM AI Engineering','Esperienza con docenti','Piacenza e dintorni'],
+                trust:['IBM Generative AI Engineering (Coursera)','IBM RAG &amp; Agentic AI (Coursera)','Google Prompting Essentials (Coursera)','Fastweb · AI per Formatori'],
                 sfidaTitle:"L'AI è già in classe.<br>La domanda è chi la gestisce.",
-                sfidaBody:"I tuoi studenti la usano già — per fare compiti, per scrivere, per cercare risposte. Il nodo non è vietarla. È capirla prima di loro.",
+                sfidaBody:"I tuoi studenti usano già l'AI — per fare compiti, per scrivere, per cercare risposte veloci. Vietarla non funziona. Ignorarla nemmeno. L'unica strada è capirla davvero — e poi decidere come usarla in classe, con le tue regole.",
                 fearCards:[{q:'"I miei studenti usano l\'AI per copiare. Non so come gestirlo."',label:'Il problema concreto'},{q:'"Correggere 30 elaborati mi porta via ore. Ci deve essere un modo migliore."',label:'Il tempo rubato'},{q:'"Vorrei personalizzare le spiegazioni ma non ho il tempo per farlo."',label:'Il limite strutturale'},{q:'"Sento parlare di AI in classe ma non so da dove iniziare senza fare danni."',label:'Il blocco iniziale'}],
                 metodoTitle:'Prima capisci. Poi insegni.',
-                metodoBody:"Non puoi guidare gli studenti su qualcosa che non conosci. Il percorso parte sempre da te — poi arriviamo alla classe.",
-                metodoNote:'Il percorso si adatta alla tua materia, al tuo livello e alle caratteristiche della tua scuola.',
+                metodoBody:"Il percorso parte sempre da te — dalla tua materia, dal tuo livello, dalla tua classe. Non esiste un corso uguale per tutti gli insegnanti. Prima capisco la tua situazione, poi costruiamo qualcosa che ti sia davvero utile — non un'altra formazione da dimenticare il lunedì mattina.",
+                metodoNote:'Materia, livello, tipo di scuola, numero di studenti — tutto entra nella costruzione del percorso. Non vendo moduli standard.',
                 metodoCta:'Parliamo della tua situazione →',
                 steps:[
                     {num:'01',iconClass:'step-icon-1',tag:'Capire per insegnare',title:"Prima capisci come funziona l'AI",body:"Così puoi spiegarla ai tuoi studenti e guidarli con autorevolezza — non con il manuale in mano.",benefits:["Capisci cosa sa fare e cosa non sa fare","Hai un linguaggio preciso per parlarne in classe","Esci senza ansia, con strumenti concreti"],svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'},
@@ -766,12 +785,12 @@
                     {num:'Modulo 02',badge:'Didattica',badgeClass:'for-parent',cardClass:'for-parent-card',title:"Correggere con l'AI",body:"Velocità senza perdere la qualità. Come usare l'AI per correggere elaborati, con criteri tuoi, in meno tempo."},
                     {num:'Modulo 03',badge:'Materiali',badgeClass:'',cardClass:'for-together-card',title:'Creare spiegazioni adattive',body:"Spiegazioni diverse per livelli diversi, generate in pochi minuti. Più personalizzazione, meno tempo."},
                     {num:'Modulo 04',badge:'Contenuti',badgeClass:'',cardClass:'for-together-card',title:'Generare esercizi e verifiche',body:"Esercizi su misura per la tua classe, per il tuo programma, per il livello che ti serve. Senza partire da zero."},
-                    {num:'Modulo 05',badge:'Rilevamento',badgeClass:'',cardClass:'for-together-card',title:"Riconoscere un elaborato scritto con l'AI",body:"Non esistono strumenti infallibili. Ma esistono segnali chiari — impari a leggerli e a usarli nel dialogo con gli studenti."},
+                    {num:'Modulo 05',badge:'Rilevamento',badgeClass:'',cardClass:'for-together-card',title:"Riconoscere un elaborato scritto con l'AI",body:"Non esistono strumenti infallibili. Ma esistono segnali chiari, impari a leggerli e a usarli nel dialogo con gli studenti."},
                     {num:'Modulo 06',badge:'Policy',badgeClass:'',cardClass:'for-together-card',title:'Costruire una policy AI per la tua classe',body:"Regole chiare, condivise, sostenibili. Come impostare i confini senza doverli difendere ogni giorno."},
                     {num:'Extra 1',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:"L'AI come strumento di inclusione",body:"DSA, BES, plusdotazione: come l'AI può aiutarti a personalizzare davvero, non solo sulla carta."},
                     {num:'Extra 2',badge:'BONUS',badgeClass:'modulo-bonus',cardClass:'for-kids-card modulo-extra',title:'Progetto finale: il tuo kit didattico',body:"Esci con un kit pronto: template di correzione, esercizi generati, policy di classe. Tuo, subito."}
                 ],
-                ctaLabel:'Percorso per docenti · Adattato alla tua scuola',ctaTitle:'Parliamone: ogni scuola è diversa.',ctaSub:"Prima di costruire il percorso, capisco la tua situazione — materia, livello, contesto. Non esiste un corso uguale per tutti.",ctaBtn:'Raccontami la tua situazione →',
+                ctaLabel:'Percorso per docenti · Adattato alla tua scuola',ctaTitle:'Parliamone: ogni scuola è diversa.',ctaSub:"Scrivimi e raccontami la tua situazione — la materia, la scuola, cosa ti preoccupa dell'AI in classe. Ti rispondo di persona e, se ha senso, costruiamo insieme qualcosa di utile davvero.",ctaBtn:'Raccontami la tua situazione →',
                 formOptions:['Insegnante scuola media','Insegnante scuola superiore','Coordinatore didattico','Dirigente scolastico','Altro'],formExtraLabel:'Materia e tipo di scuola',formExtraPlaceholder:'es. Italiano, liceo scientifico, 3ª media…',formMsgPlaceholder:"Raccontami la tua situazione — con l'AI in classe, con gli studenti, con i colleghi. Ti rispondo con idee concrete."
             }
         };
